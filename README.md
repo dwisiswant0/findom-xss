@@ -44,3 +44,8 @@ By default, output will be stored in the `results/` directory in the repository 
 ### License
 
 **FinDOM-XSS** is licensed under the Apache. Take a look at the [LICENSE](https://github.com/dwisiswant0/findom-xss/blob/master/LICENSE) for more information.
+
+### Thanks
+
+- [@dark_warlord14](https://twitter.com/dark_warlord14) - Inspired by the JSScanner tool, that's why this tool was made.
+- [@aslanewre](https://twitter.com/aslanewre) - With possible patterns.

@@ -35,7 +35,7 @@ _extractDomain() {
 
 MAIN="$(dirname $(readlink -f ${BASH_SOURCE[0]}))"
 RESULT="${MAIN}/results"
-mkdir -p ${RESULT}
+[[ ! -d "${RESULT}" ]] && mkdir -p ${RESULT}
 _validateTarget ${1}
 DOMAIN=$(_extractDomain ${1})
 [[ -z "${2}" ]] && OUTPUT="${RESULT}/${DOMAIN}.txt" || OUTPUT="${2}"

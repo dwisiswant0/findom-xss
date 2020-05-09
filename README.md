@@ -28,10 +28,12 @@ To run the tool on a target, just use the following command.
 $ ./findom-xss.sh https://target.host/about-us.html
 ```
 
-This will run the tool against `target.host`. Or if you have a list of targets you want to scan.
+This will run the tool against `target.host`.
 
+
+URLs can also be piped to findom-xss and scan on them. For example:
 ```
-$ cat urls.txt | xargs -I % ./findom-xss.sh %
+$ cat urls.txt | ./findom-xss.sh
 ```
 
 The second argument can be used to specify an output file.

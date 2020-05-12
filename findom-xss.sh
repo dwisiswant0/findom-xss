@@ -40,7 +40,11 @@ _help() {
 }
 
 _main() {
-	MAIN="$(dirname $(readlink -f ${BASH_SOURCE[0]}))"
+	if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+		MAIN="$(dirname $(readlink -f ${BASH_SOURCE[0]}))"
+	elif [[ "$OSTYPE" == "darwin"* ]]; then
+		MAIN="$(dirname $(stat -f ${BASH_SOURCE[0]}))"
+	fi
 	RESULT="${MAIN}/results"
 	DOMAIN=$(_extractDomain ${1})
 

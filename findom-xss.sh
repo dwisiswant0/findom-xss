@@ -22,11 +22,11 @@ _findomXSS() {
 }
 
 _healthCheck() {
-	curl ${1} -m 30 -sfo /dev/null || { echo -e "\033[0;31mThe ${2} host is unreachable!\033[0m" && exit; } && return
+	curl ${1} -m 30 -sfo /dev/null || { echo -e "\033[0;31mThe ${2} host is unreachable!\033[0m" && return; } && return
 }
 
 _validateTarget() {
-	[[ "${1}" != "http"* ]] && { echo -e "\033[0;33mThe target must start with 'http'.\033[0m" && exit; }
+	[[ "${1}" != "http"* ]] && { echo -e "\033[0;33mThe target must start with 'http'.\033[0m" && return; }
 }
 
 _extractDomain() {

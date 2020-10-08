@@ -21,10 +21,10 @@ $ git clone https://github.com/dwisiswant0/findom-xss.git
 
 To run the tool on a target, just use the following command.
 ```
-$ ./findom-xss.sh https://target.host/about-us.html
+$ ./findom-xss.sh https://domain.tld/about-us.html
 ```
 
-This will run the tool against `target.host`.
+This will run the tool against `domain.tld`.
 
 
 URLs can also be piped to findom-xss and scan on them. For example:
@@ -34,10 +34,10 @@ $ cat urls.txt | ./findom-xss.sh
 
 The second argument can be used to specify an output file.
 ```
-$ ./findom-xss.sh https://target.host/about-us.html /path/to/output.txt
+$ ./findom-xss.sh https://domain.tld/about-us.html /path/to/output.txt
 ```
 
-By default, output will be stored in the `results/` directory in the repository with `target.host.txt` name.
+By default, output will be stored in the `results/` directory in the repository with `domain.tld.txt` name.
 
 ### License
 

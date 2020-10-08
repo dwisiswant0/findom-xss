@@ -5,7 +5,7 @@
 
 FinDOM-XSS is a tool that allows you to finding for possible and/ potential DOM based XSS vulnerability in a fast manner.
 
-<img src="https://user-images.githubusercontent.com/25837540/79048310-7888af00-7c46-11ea-9133-5063cbd3580d.png" alt="findom-xss" width="750">
+<img src="https://user-images.githubusercontent.com/25837540/95422955-763fad00-096a-11eb-806f-890a23f0e479.png" alt="findom-xss">
 
 ---
 
@@ -16,10 +16,6 @@ $ git clone https://github.com/dwisiswant0/findom-xss.git
 ```
 
 **Dependencies:** [LinkFinder](https://github.com/GerbenJavado/LinkFinder)
-
-### Configuration
-
-Change the value of `LINKFINDER` variable _[(on line 3)](https://github.com/dwisiswant0/findom-xss/blob/master/findom-xss.sh#L3)_ with your main LinkFinder file.
 
 ### Usage
 

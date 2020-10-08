@@ -7,7 +7,7 @@ echo "  ___ _      ___   ___  __  __   __  _____ ___ ";
 echo " | __(_)_ _ |   \ / _ \|  \/  |__\ \/ / __/ __|";
 echo " | _|| | ' \| |) | (_) | |\/| |___>  <\__ \__ \\";
 echo " |_| |_|_||_|___/ \___/|_|  |_|  /_/\_\___/___/";
-echo -en "\n dw1@noobsec.org\n --"
+echo -en "\n me@dw1.io\n --"
 echo -en "\n Find for Possible DOM Based XSS Vulnerability"
 echo -e "\033[0m"
 

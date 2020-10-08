@@ -13,6 +13,8 @@ FinDOM-XSS is a tool that allows you to finding for possible and/ potential DOM 
 
 ```
 $ git clone https://github.com/dwisiswant0/findom-xss.git
+$ cd findom-xss/
+$ git submodule update
 ```
 
 **Dependencies:** [LinkFinder](https://github.com/GerbenJavado/LinkFinder)

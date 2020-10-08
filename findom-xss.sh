@@ -1,7 +1,5 @@
 #!/bin/bash
 
-LINKFINDER="/home/dw1/Tools/LinkFinder/linkfinder.py"
-
 echo -en "\033[0;35m"
 echo "  ___ _      ___   ___  __  __   __  _____ ___ ";
 echo " | __(_)_ _ |   \ / _ \|  \/  |__\ \/ / __/ __|";
@@ -12,7 +10,7 @@ echo -en "\n Find for Possible DOM Based XSS Vulnerability"
 echo -e "\033[0m"
 
 _findomXSS() {
-	PATTERN="(document|location|window)\.(URL|documentURI|href|search|hash|referrer|location\.href|name)"
+	PATTERN="(document|location|window)\.(URL|documentURI|search|hash|referrer|(location\.)?href|name)"
 	BODY=$(curl -sL ${1})
 	SCAN=($(echo ${BODY} | grep -Eoin ${PATTERN}))
 	if [[ ! -z "${SCAN}" ]]; then
@@ -22,11 +20,11 @@ _findomXSS() {
 }
 
 _healthCheck() {
-	curl ${1} -m 30 -sfo /dev/null || { echo -e "\033[0;31mThe ${2} host is unreachable!\033[0m" && return; } && return
+	curl ${1} -m 10 -sfo /dev/null || return 0
 }
 
 _validateTarget() {
-	[[ "${1}" != "http"* ]] && { echo -e "\033[0;33mThe target must start with 'http'.\033[0m" && return; }
+	[[ "${1}" != "http"* ]] && return 0
 }
 
 _extractDomain() {
@@ -47,12 +45,18 @@ _main() {
 	fi
 	RESULT="${MAIN}/results"
 	DOMAIN=$(_extractDomain ${1})
+	LINKFINDER="${MAIN}/LinkFinder/linkfinder.py"
 
 	[[ ! -d "${RESULT}" ]] && mkdir -p ${RESULT}
 	[[ -z "${2}" ]] && OUTPUT="${RESULT}/${DOMAIN}.txt" || OUTPUT="${2}"
 	
-	_validateTarget ${1}
-	_healthCheck ${1} ${DOMAIN}
+	if _validateTarget ${1}; then
+		echo -e "\n\033[0;33mThe target must start with 'http'.\033[0m" && return;
+	fi
+
+	if _healthCheck ${1} ${DOMAIN}; then
+		echo -e "\n\033[0;31mThe '${DOMAIN}' host is unreachable!\033[0m" && return;
+	fi
 	
 	echo -e "\n[$(date +'%m/%d/%Y %R')] Scanning against ${1}"
 	_findomXSS ${1} ${OUTPUT} &

@@ -33,7 +33,7 @@ _extractDomain() {
 
 _help() {
 	echo -e "\n\033[0;31mPlease specify a target.\n\033[0m"
-	echo -e "\033[0;33mUsage:\n  ${0} http://target/\n  cat target.txt | ${0}\033[0m"
+	echo -e "\033[0;33mUsage:\n  ${0} http://domain.tld/\n  cat urls.txt | ${0}\033[0m"
 	exit
 }
 

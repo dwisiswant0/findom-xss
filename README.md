@@ -5,7 +5,7 @@
 
 FinDOM-XSS is a tool that allows you to finding for possible and/ potential DOM based XSS vulnerability in a fast manner.
 
-<img src="https://user-images.githubusercontent.com/25837540/79048310-7888af00-7c46-11ea-9133-5063cbd3580d.png" alt="findom-xss" width="750">
+<img src="https://user-images.githubusercontent.com/25837540/95422191-0c72d380-0969-11eb-8119-3c6f00945674.png" alt="findom-xss" width="750">
 
 ---
 

@@ -17,10 +17,6 @@ $ git clone https://github.com/dwisiswant0/findom-xss.git
 
 **Dependencies:** [LinkFinder](https://github.com/GerbenJavado/LinkFinder)
 
-### Configuration
-
-Change the value of `LINKFINDER` variable _[(on line 3)](https://github.com/dwisiswant0/findom-xss/blob/master/findom-xss.sh#L3)_ with your main LinkFinder file.
-
 ### Usage
 
 To run the tool on a target, just use the following command.

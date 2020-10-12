@@ -20,11 +20,13 @@ _findomXSS() {
 }
 
 _healthCheck() {
-	curl ${1} -m 10 -sfo /dev/null || return 0
+	curl ${1} -m 10 -sfo /dev/null || echo "0" && echo "1"
+	return
 }
 
 _validateTarget() {
-	[[ "${1}" != "http"* ]] && return 0
+	[[ "${1}" != "http"* ]] && echo "0" || echo "1"
+	return
 }
 
 _extractDomain() {
@@ -50,11 +52,11 @@ _main() {
 	[[ ! -d "${RESULT}" ]] && mkdir -p ${RESULT}
 	[[ -z "${2}" ]] && OUTPUT="${RESULT}/${DOMAIN}.txt" || OUTPUT="${2}"
 	
-	if _validateTarget ${1}; then
+	if [[ `_validateTarget ${1}` -eq "0" ]]; then
 		echo -e "\n\033[0;33mThe target must start with 'http'.\033[0m" && return;
 	fi
 
-	if _healthCheck ${1} ${DOMAIN}; then
+	if [[ `_healthCheck ${1} ${DOMAIN}` -eq "0" ]]; then
 		echo -e "\n\033[0;31mThe '${DOMAIN}' host is unreachable!\033[0m" && return;
 	fi
 	

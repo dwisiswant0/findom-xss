@@ -49,6 +49,12 @@ _main() {
 	DOMAIN=$(_extractDomain ${1})
 	LINKFINDER="${MAIN}/LinkFinder/linkfinder.py"
 
+	if [[ ! -f "${LINKFINDER}" ]]; then
+		echo -en "\n\033[0;31mFile '${LINKFINDER}' doesn't exist!\033[0m"
+		echo -e "\n\033[0;33mUpdating submodules...\033[0m"
+		git submodule update > /dev/null
+	fi
+
 	[[ ! -d "${RESULT}" ]] && mkdir -p ${RESULT}
 	[[ -z "${2}" ]] && OUTPUT="${RESULT}/${DOMAIN}.txt" || OUTPUT="${2}"
 	
